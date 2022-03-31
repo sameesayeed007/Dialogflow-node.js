@@ -1,6 +1,7 @@
 const dialogflow = require('@google-cloud/dialogflow');
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 
 // Your google dialogflow project-id
 const PROJECID = process.env.project_id;
@@ -59,6 +60,7 @@ webApp.use(express.urlencoded({
     extended: true
 }));
 webApp.use(express.json());
+webApp.use(cors());
 
 // Server Port
 const PORT = process.env.PORT || 8080;
